@@ -120,13 +120,6 @@ internal class LocationResultHelper(private val mContext: Context, private val m
         // Get a PendingIntent containing the entire back stack.
         val notificationPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        //        NotificationCompat.Builder notificationBuilder2 = new NotificationCompat.Builder(mContext, PRIMARY_CHANNEL)
-        //                .setContentTitle(getLocationResultTitle())
-        //                .setContentText(getLocationResultText())
-        //                .setSmallIcon(R.mipmap.ic_launcher)
-        //                .setAutoCancel(true)
-        //                .setContentIntent(notificationPendingIntent);
-
         val notificationBuilder = Notification.Builder(mContext, PRIMARY_CHANNEL)
                 .setContentTitle(locationResultTitle)
                 .setContentText(locationResultText)

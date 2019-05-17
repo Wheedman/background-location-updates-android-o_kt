@@ -50,10 +50,10 @@ class LocationUpdatesBroadcastReceiver : BroadcastReceiver() {
                     val locationResultHelper = LocationResultHelper(
                             context, locations)
                     // Save the location data to SharedPreferences.
-                   // locationResultHelper.saveResults()
+                    locationResultHelper.saveResults()
                     // Show notification with the location data.
                     locationResultHelper.showNotification()
-                    //Log.i(TAG, LocationResultHelper.getSavedLocationResult(context))
+                    Log.i(TAG, LocationResultHelper.getSavedLocationResult(context))
                 }
             }
         }

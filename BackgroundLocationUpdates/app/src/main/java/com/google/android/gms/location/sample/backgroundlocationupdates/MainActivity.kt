@@ -59,9 +59,9 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mRequestUpdatesButton = findViewById(R.id.request_updates_button) as Button
-        mRemoveUpdatesButton = findViewById(R.id.remove_updates_button) as Button
-        mLocationUpdatesResultView = findViewById(R.id.location_updates_result) as TextView
+        mRequestUpdatesButton = findViewById<Button>(R.id.request_updates_button)
+        mRemoveUpdatesButton = findViewById<Button>(R.id.remove_updates_button)
+        mLocationUpdatesResultView = findViewById<TextView>(R.id.location_updates_result)
 
         // Check if the user revoked runtime permissions.
         if (!checkPermissions()) {
@@ -144,7 +144,7 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
      * @param text The Snackbar text.
      */
     private fun showSnackbar(text: String) {
-        val container = findViewById(R.id.activity_main) as View
+        val container = findViewById<View>(R.id.activity_main)
         if (container != null) {
             Snackbar.make(container, text, Snackbar.LENGTH_LONG).show()
         }
