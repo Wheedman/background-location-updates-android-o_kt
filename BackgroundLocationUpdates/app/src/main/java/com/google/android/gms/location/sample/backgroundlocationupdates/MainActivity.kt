@@ -74,8 +74,8 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
 
     override fun onStart() {
         super.onStart()
-        /*PreferenceManager.getDefaultSharedPreferences(this)
-                .registerOnSharedPreferenceChangeListener(this)*/
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .registerOnSharedPreferenceChangeListener(this)
     }
 
 
@@ -202,7 +202,7 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
                 Log.i(TAG, "User interaction was cancelled.")
             } else if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission was granted.
-                requestLocationUpdates(null)
+                requestLocationUpdates()
 
             } else {
                 // Permission denied.
@@ -246,7 +246,7 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
     /**
      * Handles the Request Updates button and requests start of location updates.
      */
-    fun requestLocationUpdates(view: View?) {
+    fun requestLocationUpdates() {
         try {
             Log.i(TAG, "Starting location updates")
             LocationRequestHelper.setRequesting(this, true)
@@ -262,7 +262,7 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
     /**
      * Handles the Remove Updates button, and requests removal of location updates.
      */
-    fun removeLocationUpdates(view: View) {
+    fun removeLocationUpdates() {
         Log.i(TAG, "Removing location updates")
         LocationRequestHelper.setRequesting(this, false)
         mFusedLocationClient!!.removeLocationUpdates(pendingIntent)
